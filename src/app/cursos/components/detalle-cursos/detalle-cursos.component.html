@@ -1,0 +1,67 @@
+<h1>Detalle de Curso</h1>
+
+<div *ngIf="(curso$ | async )  as es">
+    <form>
+        <mat-form-field appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input matInput> {{es.nombre }}
+        </mat-form-field>
+    </form>
+    <form>
+        <mat-form-field appearance="fill">
+            <mat-label>Cantiad Horas</mat-label>
+            <input matInput> {{es.cantidad_horas }}
+        </mat-form-field>
+    </form>
+    <form>
+        <mat-form-field appearance="fill">
+            <mat-label>Cantidad Clases</mat-label>
+            <input matInput> {{es.cantidad_clases }}
+        </mat-form-field>
+    </form>
+    <form>
+        <mat-form-field appearance="fill">
+            <mat-label>Profesor</mat-label>
+            <input matInput> {{es.profesor }}
+        </mat-form-field>
+
+    </form>
+</div>
+
+<div *ngIf="!(curso$ | async)">
+    <p>No se encontró el curso</p>
+</div>
+
+<div *ngIf="estudiantesCurso.length > 0">
+    <h2>Estudiantes Inscriptos</h2>
+    <table mat-table [dataSource]="estudiantesCurso" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order. <pre>{{inscripciones$ | async | json}}</pre>
+            The actual rendered columns are set as a property on the row definition" -->
+
+
+        <!-- Curso Column -->
+        <ng-container matColumnDef="estudiante">
+            <th mat-header-cell *matHeaderCellDef>
+                <span appTextoa20px> Estudiante</span>
+            </th>
+            <td mat-cell *matCellDef="let estudiante"> {{ estudiante | nombreApellido }} </td>
+        </ng-container>
+
+        <!-- Accion Column -->
+        <ng-container matColumnDef="accion">
+            <th mat-header-cell *matHeaderCellDef>
+                <span appTextoa20px> Desinscribir </span>
+            </th>
+            <td mat-cell *matCellDef="let estudiante">
+                <button mat-button (click)="desincribirEstudianteCurso(estudiante.id)">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+    </table>
+
+</div>

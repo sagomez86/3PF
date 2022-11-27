@@ -1,0 +1,32 @@
+<h1>Detalle de usuario</h1>
+
+<div *ngIf="(usuario$ | async )  as es">
+    <form >
+        <mat-form-field appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input matInput > {{es.nombre }}
+        </mat-form-field>
+    </form>
+    <form >
+        <mat-form-field appearance="fill">
+            <mat-label>Apellido</mat-label>
+            <input matInput > {{es.apellido }}
+        </mat-form-field>
+    </form>
+    <form >
+        <mat-form-field appearance="fill">
+            <mat-label>Usuario</mat-label>
+            <input matInput > {{es.usuario }}
+        </mat-form-field>
+    </form>
+    <form >
+        <mat-form-field appearance="fill">
+            <mat-label>Correo</mat-label>
+            <input matInput > {{es.correo }}
+        </mat-form-field>        
+    </form>
+</div>
+
+<div *ngIf="!(usuario$ | async)">
+    <p>No se encontró el usuario</p>
+</div>

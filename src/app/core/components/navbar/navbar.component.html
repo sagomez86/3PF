@@ -1,0 +1,37 @@
+<ng-container *ngIf="sesion$ | async as sesion">
+  <div *ngIf="sesion.sesionActiva">
+    <mat-drawer-container class="example-container" autosize>
+      <mat-drawer #drawer class="example-sidenav" mode="side">
+        <!-- <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p> -->
+        <ul>
+          <li>
+            <a mat-button routerLink="" >Inicio</a>
+          </li>
+          <li>
+            <a mat-button routerLink="estudiantes">Estudiantes</a>
+          </li>
+          <li>
+            <a mat-button routerLink="cursos">Cursos</a>
+          </li>
+          <li>
+            <a mat-button routerLink="inscripciones">Inscripciones</a>
+          </li>
+          <li *ngIf="sesion.usuarioActivo?.admin" >
+            <a mat-button routerLink="usuarios">Usuarios</a>
+          </li>
+        </ul>
+        <button mat-icon-button color="primary" (click)="logout()" >
+          <mat-icon>logout</mat-icon>
+        </button>
+      </mat-drawer>
+      
+      <div class="example-sidenav-content">
+        <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon"
+          (click)="drawer.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+    </mat-drawer-container>
+  </div>
+</ng-container>
+

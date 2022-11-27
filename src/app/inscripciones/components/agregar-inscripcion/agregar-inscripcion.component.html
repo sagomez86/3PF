@@ -1,0 +1,29 @@
+<div class="div">
+    <h3>Inscribir Estudiante</h3>
+    <br>
+    <form [formGroup]="formulario" class="form-container">
+        <div class="row col-md-4">
+            <mat-form-field appearance="fill">
+                <mat-label>Estudiante</mat-label>
+                <mat-select formControlName="id_estudiante">
+                    <mat-option *ngFor="let estudiante of estudiantes$ | async" [value]="estudiante.id">
+                        {{estudiante | nombreApellido}}
+                    </mat-option>
+                </mat-select>
+           </mat-form-field>
+        </div>
+        <div class="row col-md-4">
+            <mat-form-field appearance="fill">
+                <mat-label>Curso</mat-label>
+                <mat-select formControlName="id_curso">
+                    <mat-option *ngFor="let curso of cursos$ | async" [value]="curso.id">
+                        {{curso.nombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </form>
+</div>
+<div class="div">
+    <button mat-raised-button color="primary" type="submit" (click)="incribirEstudiante()">Inscribir Estudiante</button>
+</div>

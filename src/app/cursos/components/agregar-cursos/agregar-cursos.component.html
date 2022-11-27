@@ -1,0 +1,37 @@
+
+<div class="div">
+    <h3>Alta de Curso</h3>
+    <br>
+<form [formGroup]="formulario" class="form-container">
+<div class="row col-md-4">
+    <mat-form-field appearance="fill">
+        <mat-label>Nombre Curso</mat-label>
+        <input type="text" formControlName="nombre" matInput>
+      </mat-form-field>
+    </div>
+
+<div class="row col-md-4">
+    <mat-form-field appearance="fill">
+        <mat-label>Cantidad Horas</mat-label>
+        <input type="text" formControlName="cantidad_horas" matInput>
+      </mat-form-field>
+    </div>
+
+<div class="row col-md-4">
+    <mat-form-field appearance="fill">
+        <mat-label>Cantidad Clases</mat-label>
+        <input type="text" formControlName="cantidad_clases" matInput>
+      </mat-form-field>
+    </div>
+<div class="row col-md-4">
+    <mat-form-field appearance="fill">
+        <mat-label>Profesor</mat-label>
+        <input type="text" formControlName="profesor" matInput>
+      </mat-form-field>
+    </div>
+</form>
+</div>
+<div class="div">
+    <button mat-raised-button color="primary" type="submit" (click)="agregarCurso()">Agregar</button>
+</div>
+  

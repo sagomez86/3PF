@@ -1,0 +1,36 @@
+
+<div class="div">
+    <h2>Modificar Datos de Estudiante</h2>
+    <br>
+<form [formGroup]="formulario" class="form-container">
+<div class="row col-md-4">
+    <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input type="text" formControlName="nombre" matInput>
+      </mat-form-field>
+    </div>
+
+<div class="row col-md-4">
+    <mat-form-field appearance="fill">
+        <mat-label>Apellido</mat-label>
+        <input type="text" formControlName="apellido" matInput>
+      </mat-form-field>
+    </div>
+
+<div class="row col-md-4">
+    <mat-form-field appearance="fill">
+        <mat-label>Edad</mat-label>
+        <input type="text" formControlName="edad" matInput>
+      </mat-form-field>
+    </div>
+<div class="row col-md-4">
+    <mat-form-field appearance="fill">
+        <mat-label>Curso</mat-label>
+        <input type="text" formControlName="curso" matInput>
+      </mat-form-field>
+    </div>
+</form>
+</div>
+<div class="div">
+    <button mat-raised-button color="primary" type="submit" (click)="editarEstudiante()">Editar Estudiante</button>
+</div>
